@@ -1,0 +1,153 @@
+
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+}
+
+.left {
+	float: left !important;
+}
+
+.right {
+	float: right !important;
+}
+
+.MUFC {
+	background-color: $MUFC;
+}
+.THFC {
+	background-color: $THFC;
+}
+.AFCB {
+	background-color: $AFCB;
+}
+.AVFC {
+	background-color: $AVFC;
+}
+.EFC {
+	background-color: $EFC;
+	.team_info_wrapper {
+		background-color: $EFC;
+	}	
+}
+.Watfordfc {
+	background-color: $Watfordfc;
+	.team_info_wrapper {
+		color: black;	
+	}	
+}
+.LCFC {
+	background-color: $LCFC;
+}
+.SUN {
+	background-color: $SUN;
+}
+.NCFC {
+	background-color: $NCFC;
+}
+.CRY {
+	background-color: $CRY;
+}
+.CFC {
+	background-color: $CFC;
+}
+.SWA {
+	.team_info_wrapper {
+		color: black;
+	}
+}
+.NUFC {
+	background-color: $NUFC;
+}
+.SFC {
+	background-color: $SFC;
+}
+.AFC {
+	background-color: $AFC;
+}
+.WHU {
+	background-color: $WHU;
+}
+.SCFC {
+	background-color: $SCFC;
+}
+.LFC {
+	background-color: $LFC;
+}
+.WBA {
+	background-color: $WBA;
+}
+.MCFC {
+	background-color: $MCFC;
+}
+
+section {
+	height: 100vh;
+	float: left;
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+
+.content-wrap-padding {
+	padding: 50px 100px;
+}
+
+.crest_wrapper {
+	width: 40%;
+	height: 100%;
+	padding: 5%;
+	overflow: hidden;
+}
+
+.team_info_wrapper {
+	position: relative;
+	width: 60%;
+	padding: 2%;
+	height: 100%;
+	color: white;
+	.team_name {
+		@include responsive-font(4vw, 20px, 50px)
+	}
+}
+
+.crest {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: 50%;
+}
+
+.league_table {
+	float: none;
+    margin: 0 auto;
+	td {
+		padding: 3px 10px;
+		&:last-child{
+			//background-color: green;
+		}
+	}
+	tbody tr {
+		&:nth-child(1), &:nth-child(2), &:nth-child(3) {
+			background-color: #36963E;
+		}
+		&:nth-child(4) {
+			background-color: #8FC299;
+		}
+		&:nth-child(5) {
+			background-color: #92B0A4;
+		}
+		&:nth-child(18), &:nth-child(19), &:nth-child(20) {
+			background-color: #FC5952;
+		}
+	}
+}

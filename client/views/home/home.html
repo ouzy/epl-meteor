@@ -1,0 +1,67 @@
+
+<head>
+  <title>epl</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <!-- fonts -->
+  <link rel="stylesheet" type="text/css" href="/fonts/style.css"/>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <!-- EPL API -->
+  <script>
+  /*	$.ajax({
+      headers: { 'X-Auth-Token': 'd70877da801a433fb3091a07fdd7b319' },
+      url: 'http://api.football-data.org/alpha/soccerseasons/?season=2015',
+      //url: 'http://api.football-data.org/alpha/fixtures?timeFrame=n1',
+      dataType: 'json',
+      type: 'GET',
+    }).done(function(response) {
+      // do something with the response, e.g. isolate the id of a linked resource        
+      var regex = /.*?(\d+)$/; // the ? makes the first part non-greedy
+      var res = regex.exec(response._links.self.href);
+      var teamId = res[1];
+      console.log("team: "+res);
+    }); */
+	var team_list = null;
+	$.ajax({
+      url: '/json/teams.json',
+      //url: 'http://api.football-data.org/alpha/fixtures?timeFrame=n1',
+      dataType: 'json',
+      type: 'GET',
+    }).done(function(response) {
+      // do something with the response, e.g. isolate the id of a linked resource    
+      teams = response;
+      console.table(response.teams);
+      console.log("team: "+response.teams.length);
+      for(var i = 0; i < response.teams.length; i++) {
+      	$(".team_name span").append(response.teams[i].name);
+      	$(".team_value span").append(response.teams[i].squadMarketValue);
+      }
+    }); 
+  </script>
+</head>
+
+
+<template name="home">
+	<header>
+		<label for="showblock" class="show-mobile">
+		    <ul class='hamburger'>
+			    <li></li>
+			    <li></li>
+			    <li></li>
+		    </ul>
+		</label>
+	  	<input type="checkbox" id="showblock" />
+		<nav>
+			<ul class="navigation">
+				<li><a href="{{pathFor route='teamList'}}">Teams</a></li>
+				<li><a href="{{pathFor route='leagueTable'}}">League Table</a></li>
+				<li><a href="{{pathFor route='schedule'}}">Fixtures</a></li>
+			</ul>
+			<div class="logo" style="background-image: url(https://upload.wikimedia.org/wikipedia/en/5/5a/Premier_League.svg)"></div>
+		</nav>
+	</header>
+	<div class="container">
+		{{> yield}}
+	</div>
+</template>

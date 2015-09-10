@@ -1,0 +1,76 @@
+header {
+
+}
+
+nav {
+	padding-top: 70px;
+	width: 400px;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	background-color: white;
+	left: -400px;
+	transition: all .4s;
+	border-right: 10px solid $premierleagueblue;
+}
+
+.navigation {
+	a {
+		color: $premierleagueblue;
+		text-decoration: none;
+		transition: all .3s;
+		border-bottom: 5px solid rgba(0, 0, 0, 0);
+		&:hover {
+			border-color: $premierleagueblue;
+		}
+	}
+	li {
+		list-style-type: none;
+		@extend h1;
+		margin-bottom: 15px;
+	}
+}
+
+.logo {
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	width: 150px;
+	height: 150px;
+	background-size: contain;
+	background-position: 50%;
+	background-repeat: no-repeat;
+}
+
+header label {
+	position: fixed;
+	left: 0;
+	top: 13px;
+	z-index: 130;
+	height: 50px;
+	width: 50px;
+}
+
+.hamburger {
+	position: absolute;
+	top: 0;
+	z-index: 100;
+	list-style-type: none;
+}
+
+.hamburger li {
+	width: 30px;
+	background-color: $premierleagueblue;
+	height: 3px;
+	margin-bottom: 5px;
+}
+
+#showblock {
+  display: none;
+}
+
+#showblock:checked + nav {
+	@include transform(translateX(400px));
+}
